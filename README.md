@@ -1,0 +1,1 @@
+.envとGCPのKeyのJsonを用意すること
