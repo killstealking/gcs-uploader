@@ -53,6 +53,7 @@ class ScryfallDataRepository:
                 and card["security_stamp"] not in self.SECURITY_STAMPS
             ):
                 print("unsup security")
+                print(card["id"])
                 return "unsupported"
             if card["layout"] in self.DOUBLE_IMAGES:
                 return "double"
@@ -70,7 +71,7 @@ class ScryfallDataRepository:
             ]:
                 return "normal"
             else:
+                print("undefined")
                 print(card["id"])
                 return "undefined"
-        print(card["id"])
         return "unsupported"

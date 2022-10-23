@@ -130,7 +130,6 @@ class ImageUploader:
         failed = []
         with open(self.data_repo.JSON_FILE, "r", encoding="utf-8") as scryfall_json:
             for card in ijson.items(scryfall_json, "item"):
-                print(card)
                 image_type = self.data_repo.distribute_card_image_type(card)
                 if image_type == "normal":
                     self.__upload_normal_image(card)
