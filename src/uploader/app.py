@@ -28,9 +28,9 @@ class ImageUploader:
         is_sub: bool = False,
     ) -> str:
         if is_sub:
-            return f"/{expansion}/{language}/{card_name}_{collector_num}_sub.jpg"
+            return f"{expansion}/{language}/{card_name}_{collector_num}_sub.jpg"
         else:
-            return f"/{expansion}/{language}/{card_name}_{collector_num}.jpg"
+            return f"{expansion}/{language}/{card_name}_{collector_num}.jpg"
 
     def __download_image_to_local(self, image_url: str, image_path: str) -> None:
         image_data = requests.get(image_url).content
@@ -59,7 +59,7 @@ class ImageUploader:
             is_sub=False,
         )
         print(card_name)
-        image_path = "{}.jpg".format(card_name)
+        image_path = "{}.jpg".format(card["id"])
         self.__download_image_to_local(image_url=image_url, image_path=image_path)
         self.__upload_image(gcs_path=gcs_path, local_image_path=image_path)
         self.__delete_local_image(image_path=image_path)
@@ -81,7 +81,7 @@ class ImageUploader:
                 is_sub=is_sub,
             )
             print(card_name)
-            image_path = "{}.jpg".format(card_name)
+            image_path = "{}.jpg".format(card["id"])
             self.__download_image_to_local(image_url=image_url, image_path=image_path)
             self.__upload_image(gcs_path=gcs_path, local_image_path=image_path)
             self.__delete_local_image(image_path=image_path)
@@ -114,8 +114,8 @@ class ImageUploader:
                         card_name=card_name,
                         is_sub=True,
                     )
-                    print(card_name)
-                    image_path = "{}.jpg".format(card_name)
+
+                    image_path = "{}.jpg".format(card["id"])
                     self.__download_image_to_local(
                         image_url=image_url, image_path=image_path
                     )

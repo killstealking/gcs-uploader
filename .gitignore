@@ -166,5 +166,5 @@ cython_debug/
 .env
 all-card.json
 blob_key.json
-
+*.jpg
 # End of https://www.toptal.com/developers/gitignore/api/python
