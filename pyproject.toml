@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "gcs-uplodaer"
+version = "0.1.0"
+description = ""
+authors = ["KillStealKing <i.ksk0601@gmail.com>"]
+
+packages = [
+    { include = "src" },
+]
+[tool.poetry.dependencies]
+python = "^3.10"
+google-cloud-storage = "^2.5.0"
+python-dotenv = "^0.21.0"
+requests = "^2.28.1"
+black = "^22.10.0"
+isort = "^5.10.1"
+pyright = "^1.1.276"
+ijson = "^3.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
+[tool.pyright]
+pythonVersion = "3.9"
+include = ["src"]
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "basic"
+reportMissingTypeStubs = false
+useLibraryCodeForTypes = true
+
