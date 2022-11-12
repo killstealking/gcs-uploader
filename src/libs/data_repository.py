@@ -12,7 +12,8 @@ class ScryfallDataRepository:
         "BULK_DATA_URL", "https://api.scryfall.com/bulk-data"
     )
     JSON_FILE = "./all-card.json"
-
+    SET_JSON_FILE = "./set.json"
+    SET_DATA_URL = os.environ.get("SET_DATA_URL", "https://api.scryfall.com/sets")
     SET_TYPES = ["token", "memorabilia"]
     BORDER_COLOR = ["silver", "gold"]
     DOUBLE_IMAGES = ["transform", "modal_dfc"]
@@ -68,6 +69,7 @@ class ScryfallDataRepository:
                 "saga",
                 "flip",
                 "adventure",
+                "class",
             ]:
                 return "normal"
             else:
